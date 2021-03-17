@@ -40,7 +40,7 @@ StopWDT: mov.w   #WDTPW|WDTHOLD,&WDTCTL ; Stop watchdog timer
 main:	nop
 ; a) calculte the sum of each values, result in Sum
 		mov.w	#0,r5					; initialize index with 0
-		mov.w	#0,r6					; initialize Sum with 0
+		mov.w	#0,r6					; initialize sum with 0
 		mov.w	#Values,r7				; load 1st Values address in R7
 bcl:	mov.b	@r7,r8					; move value (address R7) in R8 and increment R7
 		inc.w	r7						; increment value address
@@ -51,10 +51,15 @@ doSum:	add.w	r8,r6					; add r8 to sum
 		inc.w	r5						; increment index
 		cmp.w	#NB_VAL,r5				; compare index and NB_VAL
 		jn		bcl						; jump to bcl if index is less than NB_VAL
-		mov.w	r5,Sum					; move sum in memory
+		mov.w	r6,Sum					; move sum in memory
 
 ; b) calculate the Mean = Sum / NB_VAL
-
+		clrc							; clear carry bit
+		rrc.w	r6						; divide sum by 2 (total: /2)
+		rra.w	r6						; divide sum by 2 (total: /4)
+		rra.w	r6						; divide sum by 2 (total: /8)
+		rra.w	r6						; divide sum by 2 (total: /16)
+		mov.w	r6,Mean					; move mean in memory
 
 fin:	jmp		fin
 		nop
