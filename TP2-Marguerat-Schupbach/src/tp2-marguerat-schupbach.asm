@@ -34,11 +34,19 @@ loop:
         addc.b R6, R6                    ;
         addc.b R6, R6                    ; dépassement...
         addc.b R6, R6                    ; byte avec dépassement
+        bic.w	#0xFFFF, SR				; Clear all SR bits
         nop                             ; to show result before next instr.
 
         ; a) word sans dépassement
+        mov.w	#0245h, R6				; word sans dépassement
+        add.w	R6, R6					;
+        addc.w	#828Ch, R6				;
 
         ; b) word avec dépassement
+        addc.w	R6, R6					; dépassement...
+        addc.w	R6, R6					; word avec dépassement
+        bic.w	#0xFFFF, SR				; Clear all SR bits
+        nop                             ; to show result before next instr.
 
 ; - TP2: 4.4 Soustraction
         ; a) byte sans dépassement et sans réport
