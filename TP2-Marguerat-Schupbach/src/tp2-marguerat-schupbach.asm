@@ -50,12 +50,17 @@ loop:
 
 ; - TP2: 4.4 Soustraction
         ; a) byte sans dépassement et sans réport
+        mov.b	#7Ch, R6				; byte sans dépassement
+        sub.b	#70h, R6				;
 
         ; b) byte sans dépassement, avec réport
+        subc.b	#0Ah, R6				; réport
 
         ; c) word sans dépassement  et sans réport
+        sub.w	#5000h, R6				;
 
         ; d) word sans dépassement, avec réport
+        subc.w	#0A00h, R6				; réport
 
 ; - TP2: 4.5 Comparaison
 
