@@ -1,7 +1,7 @@
 ; ****************************************************************************
 ; * @file    Micro-TP2_template.asm
 ; * @author  MARGUERAT - SCHUPBACH
-; * @date    dd.mm.yyyy
+; * @date    18.03.2021
 ; * @brief   TP2 - Arithmétique et assembleur
 ; *
 ; ****************************************************************************/
@@ -65,7 +65,7 @@ loop:
         nop                             ; to show result before next instr.
 
 ; - TP2: 4.5 Comparaison
-		mov.w	#0x7851, R6				; word
+		mov.w	#0x7851, R6				; positive word
 		cmp.w	#0x7900, R6				; x>R6
 		cmp.w	#0x7851, R6				; x=R6
 		cmp.w	#0x112A, R6				; X<R6
@@ -73,6 +73,14 @@ loop:
         nop                             ; to show result before next instr.
 
 ; - TP2: 4.6 Test
+		mov.w	#0x1111, R6				; positive word
+		tst.w	R6						; R6>0
+		mov.w	#0x0, R6				; O
+		tst.w	R6						; R6=0
+		mov.w	#0xA000, R6				; negative word
+		tst.w	R6						; R6<0
+        bic.w	#0xFFFF, SR				; Clear all SR bits
+        nop                             ; to show result before next instr.
 
 ; - TP2: 4.7 Instr. Logiques
 
