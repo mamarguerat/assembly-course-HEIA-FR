@@ -61,8 +61,16 @@ loop:
 
         ; d) word sans dépassement, avec réport
         subc.w	#0A00h, R6				; réport
+        bic.w	#0xFFFF, SR				; Clear all SR bits
+        nop                             ; to show result before next instr.
 
 ; - TP2: 4.5 Comparaison
+		mov.w	#0x7851, R6				; word
+		cmp.w	#0x7900, R6				; x>R6
+		cmp.w	#0x7851, R6				; x=R6
+		cmp.w	#0x112A, R6				; X<R6
+        bic.w	#0xFFFF, SR				; Clear all SR bits
+        nop                             ; to show result before next instr.
 
 ; - TP2: 4.6 Test
 
