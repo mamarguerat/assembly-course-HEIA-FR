@@ -41,8 +41,8 @@ divide:	cmp.w	r6, r7
 		sub.w	r6, r7					; y = y-x
 		inc.w	r8						; i++
 		jmp		divide
-end:	mov.w	r8, Quotient			; i = quotient	Y/X
-		mov.w	r7, Modulus				; y = modulus	Y%X
+end:	mov.w	r8, Quotient			; i => quotient	Y/X
+		mov.w	r7, Modulus				; y => modulus	Y%X
 loop:	jmp		loop					; garde-fou
 		nop
 
