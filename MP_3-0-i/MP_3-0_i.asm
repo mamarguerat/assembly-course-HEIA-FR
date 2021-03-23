@@ -1,5 +1,5 @@
 ; ****************************************************************************
-; * @file   MP_3-0-i/main.asm
+; * @file   MP_3-0-i/MP_3-0_i.asm
 ; * @author	Martin MARGUERAT
 ; * @date	23-03-2021
 ; * @brief  Calculate a quotient and a modulus value of 2 words
@@ -32,7 +32,7 @@ StopWDT: mov.w   #WDTPW|WDTHOLD,&WDTCTL ; Stop watchdog timer
 ;-------------------------------------------------------------------------------
 ; Main loop here
 ;-------------------------------------------------------------------------------
-main:	nop
+main:		nop
             mov.w	#0x15AF, r6				; X value
             mov.w	#0x4FFF, r7				; Y value
             mov.w	#0x0, r8                ; index
