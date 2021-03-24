@@ -57,4 +57,3 @@ loop:	jmp		loop					; garde-fou
 ;-------------------------------------------------------------------------------
             .sect   ".reset"                ; MSP430 RESET Vector
             .short  RESET
-            
