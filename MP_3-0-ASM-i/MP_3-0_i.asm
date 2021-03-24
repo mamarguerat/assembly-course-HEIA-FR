@@ -1,5 +1,5 @@
 ; ****************************************************************************
-; * @file   MP_3-0-i/MP_3-0_i.asm
+; * @file   MP_3-0-ASM-i/MP_3-0_i.asm
 ; * @author	Martin MARGUERAT
 ; * @date	23-03-2021
 ; * @brief  Calculate a quotient and a modulus value of 2 words
