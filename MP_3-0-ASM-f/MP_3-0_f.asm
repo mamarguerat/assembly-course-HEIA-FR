@@ -1,5 +1,5 @@
 ; ****************************************************************************
-; * @file   MP_3-0-ASM-j/MP_3-0_j.asm
+; * @file   MP_3-0-ASM-f/MP_3-0_f.asm
 ; * @author	Martin MARGUERAT
 ; * @date	24-03-2021
 ; * @brief  Translate string to upper case
