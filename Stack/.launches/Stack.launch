@@ -10,7 +10,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.MSP430FR5969.ccxml.TI MSP430 USB1/MSP430" value="${build_artifact:Stack}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.MSP430FR5969.ccxml.TI MSP430 USB1/MSP430" value="Stack"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:Stack}"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.MSP430FR5969.ccxml.TI MSP430 USB1/MSP430" value="C:/Users\pietro.buccella\switchdrive\HEIA-FR\Cours\Microprocesseurs\Notes_Prep\CC_workspace\Course_ws\Stack\Debug\Stack.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.MSP430FR5969.ccxml.TI MSP430 USB1/MSP430" value="C:\Users\marti\OneDrive\AA-DIV_Martin\Ecole\HEIA-FR\170-Electronique et informatique\Microprocesseurs\TP\TP-WorkSpace\Stack\Debug\Stack.out"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/Stack"/>
 </listAttribute>
