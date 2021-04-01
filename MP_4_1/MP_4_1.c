@@ -1,10 +1,10 @@
 /**
   ****************************************************************************
   * @file    MP_4-1_template.c
-  * @author  The Ghost...
-  * @date    dd.mm.yyyy
+  * @author  Martin MARGUERAT
+  * @date    31.03.2021
   * @brief  Opérateurs de base (addition, soustraction, multiplication,
-  *          division, module), op�rateurs d'accumulation et op�rateurs
+  *          division, module), opérateurs d'accumulation et opérateurs
   *          binaires en C
   *
   ****************************************************************************/
