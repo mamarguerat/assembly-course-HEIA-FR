@@ -17,16 +17,15 @@
         .retainrefs                     ; Additionally retain any sections
                                         ; that have references to current
                                         ; section
+; Déclaration des tableaux
+arr1:	.byte	1, 2, 3, 4, 1, 2, 3, 4	; le premier tableau
+arr2:	.byte	1, 1, 3, 1, 1, 1, 5, 4	; le deuxième tableau
 ;-------------------------------------------------------------------------------
 
 RESET:   mov.w   #__STACK_END,SP        ; Initialize stackpointer
 StopWDT: mov.w   #WDTPW|WDTHOLD,&WDTCTL ; Stop watchdog timer
 
 ;----- début du programme pour le TP2 ---------
-
-; Déclaration des tableaux
-arr1:	.int	1, 2, 3, 4, 1, 2, 3, 4	; le premier tableau
-arr2:	.int	1, 1, 3, 1, 1, 1, 5, 4	; le deuxième tableau
 
 ; Déclaration des variables utilisées
 			mov		#0, r4				; i = 0
@@ -35,8 +34,8 @@ arr2:	.int	1, 1, 3, 1, 1, 1, 5, 4	; le deuxième tableau
 			mov		#arr2, r7			; adresse de la première valeur du deuxième tableau
 
 ; Boucle principale
-Loop:		cmp		#7, r4				; comparer la valeur 8 à i
-			jnc		endoffile			; si 7 < i (i > 7), fin du programme
+Loop:		cmp		#8, r4				; comparer la valeur 8 à i
+			jc		endoffile			; si i>=8 (i > 7), fin du programme
 			push.b	@r6+				; mise de la valeur arr1[i] sur la pile
 			push.b	@r7+				; mise de la valeur arr2[i] sur la pile
 			call	#m8ax8b				; appel de la fonction m8ax8b
@@ -53,15 +52,15 @@ Loop:		cmp		#7, r4				; comparer la valeur 8 à i
 ;				SP+2 -> nombre 2 (entier non-signé 8bits)
 ;		OUTPUT:	SP+4 <- produit des nombres (entier non-signé 16bits)
 ;				SP+2 <- nombre 2 (entier non-signé 8bits)
-m8ax8b:		mov		4(r1), r8			; récupérer la valeur 1 (a)
-			mov		2(r1), r9			; récuperer la valeur 2 (b)
+m8ax8b:		mov.b	4(r1), r8			; récupérer la valeur 1 (a)
+			mov.b	2(r1), r9			; récuperer la valeur 2 (b)
 			mov		#0, r10				; reste = 0
 boucle:		clrc						; clear carry (C=0)
 			rrc		r9					; décalage de b vers la droite (b = b/2)
 			jz		sortie				; si b = 0, executer les opérations de sortie de la fonction
 			jnc		saut				; saut s'il n'y a pas de retenue à ajouter
 			add		r8, r10				; ajout de la valeur de retenue
-saut:		rla		r10					; décalage de a vers la droite (a = a*2)
+saut:		rla		r8					; décalage de a vers la droite (a = a*2)
 			jmp		boucle				; recommencer la boucle
 sortie:		add		r10, r8				; ajout de la retenue au total
 			mov		r8, 4(r1)			; mise du résultat dans la pile
