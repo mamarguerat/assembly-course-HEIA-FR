@@ -1,5 +1,5 @@
 ; ****************************************************************************
-; * @file    tp3_martin_marguerat_vincent_schupbach.asm
+; * @file    TP3_Martin_Marguerat_Vincent_Schupbach/tp3_martin_marguerat_vincent_schupbach.asm
 ; * @author  MARGUERAT - SCHUPBACH
 ; * @date    01.04.2021
 ; * @brief   TP4 - Stack et fonctions
@@ -22,125 +22,55 @@
 RESET:   mov.w   #__STACK_END,SP        ; Initialize stackpointer
 StopWDT: mov.w   #WDTPW|WDTHOLD,&WDTCTL ; Stop watchdog timer
 
-; début du programme pour le TP2
-loop:
-; - TP2: 4.2 Move
-        mov.b  #55h, R5                  ; Move byte
-        mov.w  #0xAA55, R10              ; Move word
+;----- début du programme pour le TP2 ---------
 
-; - TP2: 4.3 Addition
-        mov.b  #11h, R6                  ; byte sans dépassement
-        add.b  R5, R6                    ;
-        addc.b R6, R6                    ;
-        addc.b R6, R6                    ; dépassement...
-        addc.b R6, R6                    ; byte avec dépassement
-        bic.w	#0xFFFF, SR				; Clear all SR bits
-        nop                             ; to show result before next instr.
+; Déclaration des tableaux
+arr1:	.int	1, 2, 3, 4, 1, 2, 3, 4	; le premier tableau
+arr2:	.int	1, 1, 3, 1, 1, 1, 5, 4	; le deuxième tableau
 
-        ; a) word sans dépassement
-        mov.w	#0245h, R6				; word sans dépassement
-        add.w	R6, R6					;
-        addc.w	#828Ch, R6				;
+; Déclaration des variables utilisées
+			mov		#0, r4				; i = 0
+			mov		#0, r5				; produitScalaire = 0
+			mov		#arr1, r6			; adresse de la première valeur du premier tableau
+			mov		#arr2, r7			; adresse de la première valeur du deuxième tableau
 
-        ; b) word avec dépassement
-        addc.w	R6, R6					; dépassement...
-        addc.w	R6, R6					; word avec dépassement
-        bic.w	#0xFFFF, SR				; Clear all SR bits
-        nop                             ; to show result before next instr.
+; Boucle principale
+Loop:		cmp		#7, r4				; comparer la valeur 8 à i
+			jnc		endoffile			; si 7 < i (i > 7), fin du programme
+			push.b	@r6+				; mise de la valeur arr1[i] sur la pile
+			push.b	@r7+				; mise de la valeur arr2[i] sur la pile
+			call	#m8ax8b				; appel de la fonction m8ax8b
+			pop		r9					; récupérer le deuxième nombre (inutile)
+			pop		r8					; récupérer le résultat de l'opération
+			add		r8, r5				; produitScalaire = produitScalaire + résultat
+			inc		r4					; i = i + 1
+			jmp		Loop				; recommencer la boucle
 
-; - TP2: 4.4 Soustraction
-        ; a) byte sans dépassement et sans réport
-        mov.b	#7Ch, R6				; byte sans dépassement
-        sub.b	#70h, R6				;
+; Fonction m8ax8b
+; 	Cette fonction récupère 2 valeurs entières positives a et b et retourne
+;	la multiplication de ces deux nombres
+;		INPUT:	SP+4 -> nombre 1 (entier non-signé 8bits)
+;				SP+2 -> nombre 2 (entier non-signé 8bits)
+;		OUTPUT:	SP+4 <- produit des nombres (entier non-signé 16bits)
+;				SP+2 <- nombre 2 (entier non-signé 8bits)
+m8ax8b:		mov		4(r1), r8			; récupérer la valeur 1 (a)
+			mov		2(r1), r9			; récuperer la valeur 2 (b)
+			mov		#0, r10				; reste = 0
+boucle:		clrc						; clear carry (C=0)
+			rrc		r9					; décalage de b vers la droite (b = b/2)
+			jz		sortie				; si b = 0, executer les opérations de sortie de la fonction
+			jnc		saut				; saut s'il n'y a pas de retenue à ajouter
+			add		r8, r10				; ajout de la valeur de retenue
+saut:		rla		r10					; décalage de a vers la droite (a = a*2)
+			jmp		boucle				; recommencer la boucle
+sortie:		add		r10, r8				; ajout de la retenue au total
+			mov		r8, 4(r1)			; mise du résultat dans la pile
+			ret							; fin de la fonction
 
-        ; b) byte sans dépassement, avec réport
-        subc.b	#0Ah, R6				; réport
+;----- fin du programme pour le TP2 -----------
 
-        ; c) word sans dépassement  et sans réport
-        sub.w	#5000h, R6				;
-
-        ; d) word sans dépassement, avec réport
-        subc.w	#0A00h, R6				; réport
-        bic.w	#0xFFFF, SR				; Clear all SR bits
-        nop                             ; to show result before next instr.
-
-; - TP2: 4.5 Comparaison
-		mov.w	#0x7851, R6				; positive word
-		cmp.w	#0x7900, R6				; x>R6
-		cmp.w	#0x7851, R6				; x=R6
-		cmp.w	#0x112A, R6				; X<R6
-        bic.w	#0xFFFF, SR				; Clear all SR bits
-        nop                             ; to show result before next instr.
-
-; - TP2: 4.6 Test
-		mov.w	#0x1111, R6				; positive word
-		tst.w	R6						; R6>0
-		mov.w	#0x0, R6				; O
-		tst.w	R6						; R6=0
-		mov.w	#0xA000, R6				; negative word
-		tst.w	R6						; R6<0
-        bic.w	#0xFFFF, SR				; Clear all SR bits
-        nop                             ; to show result before next instr.
-
-; - TP2: 4.7 Instr. Logiques
-		mov.b	#0x42, R6				; positive byte
-		and.b	#0xF0, R6				; bit3..0 -> 0 => R6=0x40
-		mov.b	#0x42, R6				; positive byte
-		bic.b	#0x0F, R6				; bit3..0 clear => R6=0x40
-		mov.w	#0x5555, R6				; positive word
-		xor.w	#0xFFFF, R6				; bit15..0 invert => R6=0xAAAA
-		bis.w	#0xF000, R6				; bit15..12 set => R6=0xFAAA
-		mov.w	#0xFFEE, R6				; negative word
-		bit.w	#0x8000, R6				; bit15 test
-        bic.w	#0xFFFF, SR				; Clear all SR bits
-        nop                             ; to show result before next instr.
-
-
-; - TP2: 4.8 Additions/Soustractions signé 16bits
-        ; a) Addition
-		mov.w	#0x7FFF, R6				; positive word
-		add.w	#0x0001, R6				; Addition avec dépassement sans limitation: R6=0x8000
-		; V=1, N=1
-        bic.w	#0xFFFF, SR				; Clear all SR bits
-        nop                             ; to show result before next instr.
-
-        ; b) Soustraction
-		mov.w	#0x8000, R6				; negative word
-		sub.w	#0x0001, R6				; Soustration avec dépassement sans limitation: R6=0x7FFF
-		; V=1, N=0
-        bic.w	#0xFFFF, SR				; Clear all SR bits
-        nop                             ; to show result before next instr.
-
-        ; c) Limitation de l'addition au valeur max
-		mov.w	#0x7FFF, R6				; positive word
-		add.w	#0x0001, R6				; Addition avec dépassement sans limitation
-		jl		limitAdd				; S'il y a dépassement, limiter l'addition
-		jn		limitAdd				; Si le nombre est négatif, limiter l'addition
-finishAdd:
-        bic.w	#0xFFFF, SR				; Clear all SR bits
-        nop                             ; to show result before next instr.
-
-        ; d) Limitation la soustraction au min value
-		mov.w	#0x8000, R6				; negative word
-		sub.w	#0x0001, R6				; Soustration avec dépassement sans limitation
-		jge		finishSub				; S'il y a pas de dépassement, sauter à la fin de la soustraction
-		jn		finishSub				; Si le nombre est négatif, sauter à la fin de la soustraction
-		mov.w	#0x8000, R6				; Limitation de la soustraction
-finishSub:
-        bic.w	#0xFFFF, SR				; Clear all SR bits
-        nop                             ; to show result before next instr.
-        ; e) Opérations sur 32bits
-
-
-
-; fin du programme pour le TP2
-
-        jmp loop                        ; jump to current location '$'
-                                        ; (endless loop)
-limitAdd:
-		mov.w	#0x7FFF, R6				; Limitation de l'addition
-		jmp		finishAdd				; sauter à la fin de l'addition
-        nop                             ; necessary for MSP430FR5969
+endoffile:	jmp endoffile               ; jump to current location '$'
+            nop                         ; (endless loop)
 
 
 
