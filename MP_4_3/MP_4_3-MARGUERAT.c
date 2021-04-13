@@ -35,5 +35,5 @@ void main( void )
 
   mean = (float)sum / eNBR_VALUES;
 
-  while(1); // wait forever...git
+  while(1); // wait forever...
 }
