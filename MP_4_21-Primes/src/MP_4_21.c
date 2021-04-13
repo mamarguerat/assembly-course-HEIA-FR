@@ -29,11 +29,12 @@
 /// @return -
 void initPrimes(bool arr[], uint16_t nbrOfArrayValues)
 {
-  #warn b) initPrimes() to be corrected
   for (uint16_t i=0; i<nbrOfArrayValues; i++)
   {
      arr[i] = true;
   };
+  arr[0] = false;
+  arr[1] = false;
 }
 
 /// @brief  Apply algorithm according "Sieve of Eratosthenes"
@@ -43,7 +44,16 @@ void initPrimes(bool arr[], uint16_t nbrOfArrayValues)
 /// @return -
 void sieveofEratosthenes(bool arr[], uint16_t nbrOfArrayValues)
 {
-   #warn c) sieveofEratosthenes() to be implemented
+  for (uint16_t i=0; i<nbrOfArrayValues; i++)
+  {
+    if(arr[i])
+    {
+      for (uint16_t j=2*i; j<nbrOfArrayValues; j+=i)
+      {
+        arr[j] = false;
+      }
+    }
+  }
 }
 
 /// @brief  Get the number of primes from a boolean table
@@ -83,7 +93,8 @@ int main( void )
                            // to activate previously configured port settings
 
   // a) declare array for results (value false means non prime, true means prime)
-  #warn a) declaration of array isPrime
+  unsigned int NBR_OF_VALUES = 1000;
+  bool isPrime[NBR_OF_VALUES];
 
   // b) initialize array (0,1 to false and rest to true)
   initPrimes(isPrime,NBR_OF_VALUES);
