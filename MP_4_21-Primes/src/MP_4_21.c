@@ -42,6 +42,10 @@ void initPrimes(bool arr[], uint16_t nbrOfArrayValues)
 /// @return -
 void sieveofEratosthenes(bool arr[], uint16_t nbrOfArrayValues)
 {
+    //Description des différentes boucles:
+    // Pour chaque valeur, 1 à 1, depuis la plus petite,
+    //  Si la valeur est un nombre premier (si elle est pas marquée comme étant non-première)
+    //   Marquer tous les multiples de cette valeur jusqu'à la valeur la plus haute comme étant non-premier
   for (uint16_t i=0; i<nbrOfArrayValues; i++)
     if(arr[i])
       for (uint16_t j=2*i; j<nbrOfArrayValues; j+=i)
