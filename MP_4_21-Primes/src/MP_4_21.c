@@ -48,7 +48,7 @@ void sieveofEratosthenes(bool arr[], uint16_t nbrOfArrayValues)
     //   Marquer tous les multiples de cette valeur jusqu'à la valeur la plus haute comme étant non-premier
   for (uint16_t i=0; i<nbrOfArrayValues; i++)
     if(arr[i])
-      for (uint16_t j=2*i; j<nbrOfArrayValues; j+=i)
+      for (uint16_t j=i*i; j<nbrOfArrayValues; j+=i)
         arr[j] = false;
 }
 
