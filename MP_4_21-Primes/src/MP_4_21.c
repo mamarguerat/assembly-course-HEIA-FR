@@ -30,9 +30,7 @@
 void initPrimes(bool arr[], uint16_t nbrOfArrayValues)
 {
   for (uint16_t i=0; i<nbrOfArrayValues; i++)
-  {
      arr[i] = true;
-  };
   arr[0] = false;
   arr[1] = false;
 }
@@ -45,15 +43,9 @@ void initPrimes(bool arr[], uint16_t nbrOfArrayValues)
 void sieveofEratosthenes(bool arr[], uint16_t nbrOfArrayValues)
 {
   for (uint16_t i=0; i<nbrOfArrayValues; i++)
-  {
     if(arr[i])
-    {
       for (uint16_t j=2*i; j<nbrOfArrayValues; j+=i)
-      {
         arr[j] = false;
-      }
-    }
-  }
 }
 
 /// @brief  Get the number of primes from a boolean table
@@ -65,12 +57,8 @@ uint16_t getNumberOfPrimes(bool arr[], uint16_t nbrOfArrayValues)
   assert(nbrOfArrayValues > 1);
   uint16_t numberOfPrimes = 0; // 1 is not considered as prime
   for(unsigned int i = 0; i < nbrOfArrayValues; i++)
-  {
       if(arr[i])
-      {
           numberOfPrimes++;
-      }
-  }
   return numberOfPrimes;
 }
 
@@ -83,12 +71,8 @@ void showPrimes(bool arr[], uint16_t nbrOfArrayValues)
   assert(nbrOfArrayValues > 2);
   printf("Prime numbers are [ 2");
   for (uint16_t i=3; i<nbrOfArrayValues; i++)
-  {
     if (true == (arr[i]))
-    {
       printf(", %u", i);
-    };
-  };
   printf(" ]\n");
 }
 
