@@ -64,7 +64,13 @@ uint16_t getNumberOfPrimes(bool arr[], uint16_t nbrOfArrayValues)
 {
   assert(nbrOfArrayValues > 1);
   uint16_t numberOfPrimes = 0; // 1 is not considered as prime
-  #warn d) getNumberOfPrimes() to be implemented
+  for(unsigned int i = 0; i < nbrOfArrayValues; i++)
+  {
+      if(arr[i])
+      {
+          numberOfPrimes++;
+      }
+  }
   return numberOfPrimes;
 }
 
@@ -93,7 +99,7 @@ int main( void )
                            // to activate previously configured port settings
 
   // a) declare array for results (value false means non prime, true means prime)
-  unsigned int NBR_OF_VALUES = 1000;
+  enum {NBR_OF_VALUES = 1000};
   bool isPrime[NBR_OF_VALUES];
 
   // b) initialize array (0,1 to false and rest to true)
