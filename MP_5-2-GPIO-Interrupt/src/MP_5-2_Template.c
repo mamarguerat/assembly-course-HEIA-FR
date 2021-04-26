@@ -1,8 +1,8 @@
 /**
   ****************************************************************************
   * @file    MP_5-2.c
-  * @author  Scherwey Roland
-  * @date    17.04.2015
+  * @author  MARGUERAT Martin
+  * @date    26.04.2021
   * @brief   GPIO Interrupt handling
   *
   *
@@ -34,8 +34,12 @@ int main( void )
 
 
   // a) Define P1.0 as output
+  P1DIR |= BIT0;
 
   // b) Define P1.1 (S2) as input
+  P1DIR &= ~BIT1;
+  P1REN |= BIT1;
+  P1OUT |= BIT1;
 
   // c) Configure P1.1 to generate interrupt on falling edge
   

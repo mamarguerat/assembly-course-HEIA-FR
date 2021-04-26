@@ -1,7 +1,7 @@
 /**
   ****************************************************************************
   * @file    MP_5-1.c
-  * @author  Scherwey Roland
+  * @author  MARGUERAT Martin
   * @date    12.04.2015
   * @brief   GPIO initialization
   *
@@ -34,10 +34,12 @@ int main( void )
 
 
   // a) Define P1.0 as output
-  // TBD
+  P1DIR |= BIT0;
 
   // b) Define P1.1 as input
-  // TBD
+  P1DIR &= ~BIT1;
+  P1REN |= BIT1;
+  P1OUT |= BIT1;
 
   // c) Output SMCLK
   // TBD
