@@ -1,0 +1,179 @@
+\hypertarget{_t_p4___martin___marguerat___vincent___schupbach_8c}{}\doxysection{T\+P4\+\_\+\+Martin\+\_\+\+Marguerat\+\_\+\+Vincent\+\_\+\+Schupbach.\+c File Reference}
+\label{_t_p4___martin___marguerat___vincent___schupbach_8c}\index{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}}
+{\ttfamily \#include $<$msp430.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_t_p4___martin___marguerat___vincent___schupbach_8c_aa1979b752b92cc1198d851c7db9ed736}{N\+B\+R\+\_\+\+V\+AL}}~15
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{_t_p4___martin___marguerat___vincent___schupbach_8c_a75edab57b267db1041a235f6cfca7403}{trouve\+Min}} (unsigned char array\+In\mbox{[}$\,$\mbox{]})
+\item 
+unsigned char \mbox{\hyperlink{_t_p4___martin___marguerat___vincent___schupbach_8c_a4c66ca798cc6d052769d2e1330d4b703}{trouve\+Max}} (unsigned char array\+In\mbox{[}$\,$\mbox{]})
+\item 
+unsigned char \mbox{\hyperlink{_t_p4___martin___marguerat___vincent___schupbach_8c_ab8ab3bdd19e8b0a03de90b09015079cf}{calcul\+Moyenne}} (unsigned char array\+In\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{_t_p4___martin___marguerat___vincent___schupbach_8c_ab7ba465a7e3661025f830cb51bd73463}{clignotte\+L\+ED}} (unsigned char nbr\+Clignottement)
+\item 
+void \mbox{\hyperlink{_t_p4___martin___marguerat___vincent___schupbach_8c_abd7551ef17d755d269f594f7367cb475}{bubble\+Sort}} (unsigned char array\+In\mbox{[}$\,$\mbox{]})
+\item 
+unsigned int \mbox{\hyperlink{_t_p4___martin___marguerat___vincent___schupbach_8c_ab24598460f610ae6df9e04f550eb8c33}{somme\+Val}} (unsigned char array\+In\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{_t_p4___martin___marguerat___vincent___schupbach_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_t_p4___martin___marguerat___vincent___schupbach_8c_aa1979b752b92cc1198d851c7db9ed736}\label{_t_p4___martin___marguerat___vincent___schupbach_8c_aa1979b752b92cc1198d851c7db9ed736}} 
+\index{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}!NBR\_VAL@{NBR\_VAL}}
+\index{NBR\_VAL@{NBR\_VAL}!TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}}
+\doxysubsubsection{\texorpdfstring{NBR\_VAL}{NBR\_VAL}}
+{\footnotesize\ttfamily \#define N\+B\+R\+\_\+\+V\+AL~15}
+
+
+
+Definition at line 17 of file T\+P4\+\_\+\+Martin\+\_\+\+Marguerat\+\_\+\+Vincent\+\_\+\+Schupbach.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_t_p4___martin___marguerat___vincent___schupbach_8c_abd7551ef17d755d269f594f7367cb475}\label{_t_p4___martin___marguerat___vincent___schupbach_8c_abd7551ef17d755d269f594f7367cb475}} 
+\index{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}!bubbleSort@{bubbleSort}}
+\index{bubbleSort@{bubbleSort}!TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}}
+\doxysubsubsection{\texorpdfstring{bubbleSort()}{bubbleSort()}}
+{\footnotesize\ttfamily void bubble\+Sort (\begin{DoxyParamCaption}\item[{unsigned char}]{array\+In\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Fonction permettant de trier un tableau grâce à l\textquotesingle{}algorithme du Bubble Sort (\href{https://www.youtube.com/watch?v=lyZQPjUT5B4}{\texttt{ https\+://www.\+youtube.\+com/watch?v=ly\+Z\+Q\+Pj\+U\+T5\+B4}} et \href{https://www.youtube.com/watch?v=xli_FI7CuzA}{\texttt{ https\+://www.\+youtube.\+com/watch?v=xli\+\_\+\+F\+I7\+CuzA}}) 
+\begin{DoxyParams}{Parameters}
+{\em array\+In} & tableau de N\+B\+R\+\_\+\+V\+AL valeurs \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 130 of file T\+P4\+\_\+\+Martin\+\_\+\+Marguerat\+\_\+\+Vincent\+\_\+\+Schupbach.\+c.
+
+
+
+Referenced by main().
+
+\mbox{\Hypertarget{_t_p4___martin___marguerat___vincent___schupbach_8c_ab8ab3bdd19e8b0a03de90b09015079cf}\label{_t_p4___martin___marguerat___vincent___schupbach_8c_ab8ab3bdd19e8b0a03de90b09015079cf}} 
+\index{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}!calculMoyenne@{calculMoyenne}}
+\index{calculMoyenne@{calculMoyenne}!TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}}
+\doxysubsubsection{\texorpdfstring{calculMoyenne()}{calculMoyenne()}}
+{\footnotesize\ttfamily unsigned char calcul\+Moyenne (\begin{DoxyParamCaption}\item[{unsigned char}]{array\+In\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Fonction calculant la moyenne des nombre dans un tableau 
+\begin{DoxyParams}{Parameters}
+{\em array\+In} & tableau de N\+B\+R\+\_\+\+V\+AL valeurs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Moyenne calculée arrondie à l\textquotesingle{}entier en dessous 
+\end{DoxyReturn}
+
+
+Definition at line 100 of file T\+P4\+\_\+\+Martin\+\_\+\+Marguerat\+\_\+\+Vincent\+\_\+\+Schupbach.\+c.
+
+
+
+Referenced by main().
+
+\mbox{\Hypertarget{_t_p4___martin___marguerat___vincent___schupbach_8c_ab7ba465a7e3661025f830cb51bd73463}\label{_t_p4___martin___marguerat___vincent___schupbach_8c_ab7ba465a7e3661025f830cb51bd73463}} 
+\index{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}!clignotteLED@{clignotteLED}}
+\index{clignotteLED@{clignotteLED}!TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}}
+\doxysubsubsection{\texorpdfstring{clignotteLED()}{clignotteLED()}}
+{\footnotesize\ttfamily void clignotte\+L\+ED (\begin{DoxyParamCaption}\item[{unsigned char}]{nbr\+Clignottement }\end{DoxyParamCaption})}
+
+Fonction faisait clignotter la led à une fréquence de 2Hz pour un nombre de fois défini 
+\begin{DoxyParams}{Parameters}
+{\em nbr\+Clignottement} & nombre de fois que la L\+ED doit s\textquotesingle{}allumer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 113 of file T\+P4\+\_\+\+Martin\+\_\+\+Marguerat\+\_\+\+Vincent\+\_\+\+Schupbach.\+c.
+
+
+
+Referenced by main().
+
+\mbox{\Hypertarget{_t_p4___martin___marguerat___vincent___schupbach_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{_t_p4___martin___marguerat___vincent___schupbach_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}!main@{main}}
+\index{main@{main}!TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 30 of file T\+P4\+\_\+\+Martin\+\_\+\+Marguerat\+\_\+\+Vincent\+\_\+\+Schupbach.\+c.
+
+
+
+References bubble\+Sort(), calcul\+Moyenne(), clignotte\+L\+E\+D(), N\+B\+R\+\_\+\+V\+AL, trouve\+Max(), and trouve\+Min().
+
+\mbox{\Hypertarget{_t_p4___martin___marguerat___vincent___schupbach_8c_ab24598460f610ae6df9e04f550eb8c33}\label{_t_p4___martin___marguerat___vincent___schupbach_8c_ab24598460f610ae6df9e04f550eb8c33}} 
+\index{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}!sommeVal@{sommeVal}}
+\index{sommeVal@{sommeVal}!TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}}
+\doxysubsubsection{\texorpdfstring{sommeVal()}{sommeVal()}}
+{\footnotesize\ttfamily unsigned int somme\+Val (\begin{DoxyParamCaption}\item[{unsigned char}]{array\+In\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Fonction calculant la somme de toutes les valeurs d\textquotesingle{}un tableau 
+\begin{DoxyParams}{Parameters}
+{\em array\+In} & tableau de N\+B\+R\+\_\+\+V\+AL valeurs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+somme des valeurs du tableau 
+\end{DoxyReturn}
+
+
+Definition at line 154 of file T\+P4\+\_\+\+Martin\+\_\+\+Marguerat\+\_\+\+Vincent\+\_\+\+Schupbach.\+c.
+
+\mbox{\Hypertarget{_t_p4___martin___marguerat___vincent___schupbach_8c_a4c66ca798cc6d052769d2e1330d4b703}\label{_t_p4___martin___marguerat___vincent___schupbach_8c_a4c66ca798cc6d052769d2e1330d4b703}} 
+\index{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}!trouveMax@{trouveMax}}
+\index{trouveMax@{trouveMax}!TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}}
+\doxysubsubsection{\texorpdfstring{trouveMax()}{trouveMax()}}
+{\footnotesize\ttfamily unsigned char trouve\+Max (\begin{DoxyParamCaption}\item[{unsigned char}]{array\+In\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Fonction cherchant la valeur la plus grande d\textquotesingle{}un tableau 
+\begin{DoxyParams}{Parameters}
+{\em array\+In} & tableau de N\+B\+R\+\_\+\+V\+AL valeurs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+valeur max trouvée dans le tableau 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file T\+P4\+\_\+\+Martin\+\_\+\+Marguerat\+\_\+\+Vincent\+\_\+\+Schupbach.\+c.
+
+
+
+Referenced by main().
+
+\mbox{\Hypertarget{_t_p4___martin___marguerat___vincent___schupbach_8c_a75edab57b267db1041a235f6cfca7403}\label{_t_p4___martin___marguerat___vincent___schupbach_8c_a75edab57b267db1041a235f6cfca7403}} 
+\index{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}!trouveMin@{trouveMin}}
+\index{trouveMin@{trouveMin}!TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c@{TP4\_Martin\_Marguerat\_Vincent\_Schupbach.c}}
+\doxysubsubsection{\texorpdfstring{trouveMin()}{trouveMin()}}
+{\footnotesize\ttfamily unsigned char trouve\+Min (\begin{DoxyParamCaption}\item[{unsigned char}]{array\+In\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Fonction cherchant la valeur la plus petite d\textquotesingle{}un tableau 
+\begin{DoxyParams}{Parameters}
+{\em array\+In} & tableau de N\+B\+R\+\_\+\+V\+AL valeurs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+valeur min trouvée dans le tableau 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file T\+P4\+\_\+\+Martin\+\_\+\+Marguerat\+\_\+\+Vincent\+\_\+\+Schupbach.\+c.
+
+
+
+Referenced by main().
+
