@@ -4,3 +4,6 @@
 *.zip
 lnk_msp430fr5969.cmd
 */Debug
+*/latex
+*/man
+*/rtf
