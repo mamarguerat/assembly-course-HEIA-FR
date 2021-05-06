@@ -55,4 +55,9 @@ int main( void )
 __interrupt void Port_1_isr(void)
 {
   // d) toggle LED2
+    P1IFG &=~BIT1;      //Clear IF for P1.1 (S2) IFG
+    __no_operation();
+    __bis_SR_register(GIE);
+    __no_operation();
+    P1OUT ^= BIT0;      //Toggle
 }
