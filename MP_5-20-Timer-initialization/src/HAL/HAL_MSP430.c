@@ -70,7 +70,9 @@ void initTimer(void)
   TA0CTL   =  MC__STOP            // Stop timer first...
            |  TACLR;              // ... and clear it
 
-#warn TA0CTL to be configured according exercice
+//#warn TA0CTL to be configured according exercice
+  TA0CTL |= MC__UP + TASSEL__ACLK;
+  TA0CCR0 = 4999;
 
   TA0CCTL0 |= CCIE;               // TA0CCR0 interrupt enabled
 }
